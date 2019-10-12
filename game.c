@@ -5,10 +5,12 @@
 #include "ir_uart.h"
 #include "tinygl.h"
 #include "../fonts/font5x7_1.h"
+#include "outcome.h"
+#include "button.h"
 
 
 #define PACER_RATE 500
-#define MESSAGE_RATE 10
+#define MESSAGE_RATE 2
 
 
 void display_character (char character)
@@ -32,32 +34,30 @@ int main (void)
     tinygl_init (PACER_RATE);
     tinygl_font_set (&font5x7_1);
     tinygl_text_speed_set (MESSAGE_RATE);
+    button_init ();
+    //tinygl_text("U WIN!!\0");
+
+
+    tinygl_text_mode_set (TINYGL_TEXT_MODE_SCROLL);
     navswitch_init ();
 
     /* TODO: Initialise IR driver.  */
     ir_uart_init ();
 
-    pacer_init (PACER_RATE);
+    pacer_init (2000);
     while (1)
     {
         pacer_wait ();
-        tinygl_update ();
         navswitch_update ();
 
-        if (!(playing && otherplayer_selected)) {
+        if (!(playing != 0 && otherplayer_selected != 0)) {
+        //if ((playing == 0)) {
+            tinygl_update ();
             display_character (character);
 
-            if (navswitch_push_event_p (NAVSWITCH_NORTH))
-                character = 'R';
+            character = update_character (character);
 
-            if (navswitch_push_event_p (NAVSWITCH_WEST))
-                character = 'S';
 
-            if (navswitch_push_event_p (NAVSWITCH_SOUTH))
-                character = 'P';
-
-            /* TODO: Transmit the character over IR on a NAVSWITCH_PUSH
-               event.  */
             if (navswitch_push_event_p (NAVSWITCH_EAST)){
                 playing = character;
                 ir_uart_putc(playing);
@@ -67,7 +67,16 @@ int main (void)
             }
 
         } else {
-            display_character (playing);
+            tinygl_text(show_result(playing, otherplayer_selected));
+            while (1) {
+                pacer_wait ();
+                tinygl_update ();
+                if (button_pressed_p ()) {
+                    playing = 0;
+                    otherplayer_selected = 0;
+                    break;
+                }
+            }
         }
     }
 
