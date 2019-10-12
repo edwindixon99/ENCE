@@ -1,5 +1,4 @@
 #include "system.h"
-//#include "led.h"
 #include "pacer.h"
 #include "navswitch.h"
 #include "ir_uart.h"
@@ -24,8 +23,6 @@ void display_character (char character)
 
 int main (void)
 {
-    //led_init();
-    //led_on();
     char playing = 0;
     char character = 'P';
     char otherplayer_selected = 0;
@@ -35,7 +32,6 @@ int main (void)
     tinygl_font_set (&font5x7_1);
     tinygl_text_speed_set (MESSAGE_RATE);
     button_init ();
-    //tinygl_text("U WIN!!\0");
 
 
     tinygl_text_mode_set (TINYGL_TEXT_MODE_SCROLL);
