@@ -5,12 +5,12 @@
 #include "system.h"
 
 //initialise the paper pattern
-static const uint8_t Paper[];
+static void Rock(void);
 
 //initialise the rock pattern
-static const uint8_t Rock[];
+static void Paper(void);
 
 //initialise the scissor pattern
-static const uint8_t Scissor[];
+static void Scissor(void);;
 
 #endif
