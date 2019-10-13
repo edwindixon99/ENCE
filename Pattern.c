@@ -34,11 +34,17 @@ static void Rock()
     tinygl_update();
 }
 //Scissor pattern
-static const uint8_t Scissor[] =
+static void Scissor() =
 {
-    0b1000111,
-    0b0101010,
-    0b0010100,
-    0b0101010,
-    0b1000111,
+       tinygl_init(1000);
+		pacer_init(1000);
+		pacer_wait();
+        
+		tinygl_draw_line (tinygl_point(0,0), tinygl_point(0,2),3);
+		tinygl_draw_line (tinygl_point(0,2), tinygl_point(4,6),7);
+		tinygl_draw_line (tinygl_point(4,0), tinygl_point(4,2),3);
+		tinygl_draw_line (tinygl_point(4,2), tinygl_point(0,6),7);
+        tinygl_draw_line (tinygl_point(0,0), tinygl_point(2,2),3);
+        tinygl_draw_line (tinygl_point(4,0), tinygl_point(2,2),3);
+        tinygl_update();
 };
