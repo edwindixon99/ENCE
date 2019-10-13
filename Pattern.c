@@ -4,7 +4,7 @@
 #include "pacer.h"
 
 //Paper pattern
-static void Paper()
+static void Paper(void)
 {
 	tinygl_draw_line (tinygl_point(0,0), tinygl_point(0,6),7);
     tinygl_draw_line (tinygl_point(0,0), tinygl_point(4,0),5);
@@ -15,7 +15,7 @@ static void Paper()
 };
 
 //Rock pattern
-static void Rock() 
+static void Rock(void) 
 {	        
 	tinygl_draw_line (tinygl_point(0,1), tinygl_point(0,3),4);
 	tinygl_draw_line (tinygl_point(1,0), tinygl_point(3,0),5);
@@ -27,7 +27,7 @@ static void Rock()
 };
 
 //Scissor pattern
-static void Scissor()
+static void Scissor(void)
 {
 	tinygl_draw_line (tinygl_point(0,0), tinygl_point(0,2),3);
 	tinygl_draw_line (tinygl_point(0,2), tinygl_point(4,6),7);
