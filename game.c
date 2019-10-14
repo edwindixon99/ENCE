@@ -6,6 +6,7 @@
 #include "../fonts/font5x7_1.h"
 #include "outcome.h"
 #include "button.h"
+#include "Pattern.h"
 
 
 #define PACER_RATE 500
@@ -48,14 +49,14 @@ int main (void)
 
         pacer_wait ();
         navswitch_update ();
+        button_update();
 
         if (!(playing != 0 && otherplayer_selected != 0)) {
         //if ((playing == 0)) {
             tinygl_update ();
-            display_character (character);
+            display_pattern (character);
 
             character = update_character (character);
-
 
             if (navswitch_push_event_p (NAVSWITCH_EAST)){
                 playing = character;
@@ -70,7 +71,7 @@ int main (void)
             while (1) {
                 pacer_wait ();
                 tinygl_update ();
-                if (button_pressed_p ()) {
+                if (button_push_event_p (0)) {
                     playing = 0;
                     otherplayer_selected = 0;
                     break;
