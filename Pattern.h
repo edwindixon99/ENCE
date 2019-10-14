@@ -5,12 +5,12 @@
 #include "system.h"
 
 //initialise the paper pattern
-static void Rock(void);
+void Rock(void);
 
 //initialise the rock pattern
-static void Paper(void);
+void Paper(void);
 
 //initialise the scissor pattern
-static void Scissor(void);;
+void Scissor(void);;
 
 #endif
