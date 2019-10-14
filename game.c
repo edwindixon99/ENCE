@@ -23,6 +23,8 @@ void display_character (char character)
 
 int main (void)
 {
+    tinygl_text("Welcome");
+
     char playing = 0;
     char character = 'P';
     char otherplayer_selected = 0;
@@ -43,6 +45,7 @@ int main (void)
     pacer_init (2000);
     while (1)
     {
+
         pacer_wait ();
         navswitch_update ();
 
