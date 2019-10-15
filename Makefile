@@ -46,10 +46,10 @@ navswitch.o: ../../drivers/navswitch.c ../../drivers/avr/delay.h ../../drivers/a
 
 font.o: ../../utils/font.c ../../drivers/avr/system.h ../../utils/font.h
 	$(CC) -c $(CFLAGS) $< -o $@
-	
+
 timer.o: ../../drivers/avr/timer.c ../../drivers/avr/system.h ../../drivers/avr/timer.h
 	$(CC) -c $(CFLAGS) $< -o $@
-	
+
 timer0.o: ../../drivers/avr/timer0.c ../../drivers/avr/bits.h ../../drivers/avr/prescale.h ../../drivers/avr/system.h ../../drivers/avr/timer0.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
@@ -59,12 +59,12 @@ pacer.o: ../../utils/pacer.c ../../drivers/avr/system.h ../../drivers/avr/timer.
 tinygl.o: ../../utils/tinygl.c ../../drivers/avr/system.h ../../drivers/display.h ../../utils/font.h ../../utils/tinygl.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-outcome.o: outcome.c outcome.h ../../drivers/navswitch.h ../../utils/tinygl.h pattern.h ../../drivers/led.h
+outcome.o: outcome.c outcome.h ../../drivers/navswitch.h ../../utils/tinygl.h pattern.h ../../drivers/led.h ../../utils/pacer.h ../../drivers/avr/system.h ../../drivers/button.h ../../fonts/font5x7_1.h ../../drivers/avr/ir_uart.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 button.o: ../../drivers/button.c ../../drivers/button.h ../../drivers/avr/pio.h ../../drivers/avr/system.h
 	$(CC) -c $(CFLAGS) $< -o $@
-	
+
 led.o: ../../drivers/led.c ../../drivers/led.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
