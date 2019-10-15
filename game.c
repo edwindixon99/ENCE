@@ -99,6 +99,7 @@ int main (void)
             while (1) {
                 pacer_wait ();
                 tinygl_update ();
+                button_update();
                 if (button_push_event_p (0)) {
                     playing = 0;
                     otherplayer_selected = 0;
