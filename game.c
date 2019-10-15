@@ -6,7 +6,7 @@
 #include "../fonts/font5x7_1.h"
 #include "outcome.h"
 #include "button.h"
-#include "Pattern.h"
+#include "pattern.h"
 
 
 #define PACER_RATE 500
@@ -25,7 +25,7 @@ void display_character (char character)
 int main (void)
 {
     tinygl_text("Welcome");
-
+    int start_game = 0;
     char playing = 0;
     char character = 'P';
     char otherplayer_selected = 0;
@@ -44,15 +44,23 @@ int main (void)
     ir_uart_init ();
 
     pacer_init (2000);
+
+    tinygl_text("Welcome");
+
     while (1)
     {
-
         pacer_wait ();
         navswitch_update ();
         button_update();
 
-        if (!(playing != 0 && otherplayer_selected != 0)) {
-        //if ((playing == 0)) {
+        if (start_game == 0) {
+            tinygl_update ();
+            if (button_push_event_p (0)) {
+                start_game = 1;
+            }
+
+
+        } else if (!(playing != 0 && otherplayer_selected != 0)) {
             tinygl_update ();
             display_pattern (character);
 
