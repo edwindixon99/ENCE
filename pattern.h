@@ -1,9 +1,6 @@
 #ifndef PATTERN_H 
 #define PATTERN_H
 
-
-#include "system.h"
-
 //initialise the paper pattern
 void Rock(void);
 
@@ -11,6 +8,5 @@ void Rock(void);
 void Paper(void);
 
 //initialise the scissor pattern
-void Scissor(void);;
-
+void Scissor(void);
 #endif
