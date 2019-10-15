@@ -10,7 +10,7 @@
 
 
 #define PACER_RATE 500
-#define MESSAGE_RATE 2
+#define MESSAGE_RATE 3
 
 
 void display_character (char character)
@@ -24,7 +24,7 @@ void display_character (char character)
 
 int main (void)
 {
-    tinygl_text("Welcome");
+    int count;
     int start_game = 0;
     char playing = 0;
     char character = 'P';
@@ -45,7 +45,7 @@ int main (void)
 
     pacer_init (2000);
 
-    tinygl_text("Welcome");
+    tinygl_text("Welcome\0");
 
     while (1)
     {
@@ -75,6 +75,26 @@ int main (void)
             }
 
         } else {
+            tinygl_clear();
+            tinygl_text_mode_set (TINYGL_TEXT_MODE_STEP);
+            count = 0;
+            tinygl_text("321\0");
+            while (count < 6000) {
+                count++;
+                pacer_wait ();
+                tinygl_update ();
+            }
+            tinygl_clear();
+            count = 0;
+            while (count < 5000) {
+                pacer_wait ();
+                count++;
+                display_pattern (playing);
+            }
+
+            tinygl_init (PACER_RATE);
+            tinygl_text_speed_set (MESSAGE_RATE);
+            tinygl_text_mode_set (TINYGL_TEXT_MODE_SCROLL);
             tinygl_text(show_result(playing, otherplayer_selected));
             while (1) {
                 pacer_wait ();
