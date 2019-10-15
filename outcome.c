@@ -1,7 +1,7 @@
 #include "outcome.h"
 #include "navswitch.h"
 #include "tinygl.h"
-#include "Pattern.h"
+#include "pattern.h"
 
 /** returns a string which is to be displayed on the users display based on the outcome of the game.
     @param  the character representing the pattern the user has recieved from other player.
