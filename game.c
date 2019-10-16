@@ -15,6 +15,7 @@
 #include "outcome.h"
 #include "button.h"
 #include "pattern.h"
+#include "led.h"
 
 
 #define TINYGL_RATE 500
@@ -33,6 +34,7 @@ int main (void)
 
 
     game_init();
+    led_set(LED1,0);
 
     tinygl_text("Welcome\0");
 
@@ -75,6 +77,7 @@ int main (void)
                 tinygl_update ();
 
                 if (button_push_event_p (0)) {
+					led_set(LED1,0);
                     playing = 0;
                     otherplayer_selected = 0;
                     break;
