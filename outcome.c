@@ -27,6 +27,7 @@
 void game_init(void)
 {
     system_init ();
+    led_init();
 
     tinygl_init (TINYGL_RATE);
     tinygl_font_set (&font5x7_1);
@@ -56,7 +57,6 @@ void game_init(void)
 char* show_result (char reciever, char sender)
 {
     char* outcome = "";
-    led_init();
     led_set(LED1, 0);
 
 
