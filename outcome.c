@@ -107,20 +107,6 @@ char update_character (char character)
 }
 
 
-/** displays the a pattern of either Rock, Paper or Scisscors.
-    @param  the character representing the pattern wanting to be displayed.   */
-void display_pattern (char character)
-{
-    if (character == 'R') {
-        Rock();
-    } else if (character == 'P') {
-        Paper();
-    } else if (character == 'S') {
-        Scissor();
-    }
-}
-
-
 /** displays a countdown followed by the pattern that the user played.
     @param  the character representing the pattern that was chosen to be played   */
 void end_screen(char playing)
