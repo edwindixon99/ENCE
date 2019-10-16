@@ -15,8 +15,6 @@ char* show_result (char sender, char reciever);
 
 char update_character (char character);
 
-void display_pattern (char character);
-
 void end_screen(char playing);
 
 
