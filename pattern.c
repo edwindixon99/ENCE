@@ -45,3 +45,16 @@ void Scissor(void)
 
     tinygl_update();
 };
+
+/** displays the a pattern of either Rock, Paper or Scisscors.
+    @param  the character representing the pattern wanting to be displayed.   */
+void display_pattern (char character)
+{
+    if (character == 'R') {
+        Rock();
+    } else if (character == 'P') {
+        Paper();
+    } else if (character == 'S') {
+        Scissor();
+    }
+}
