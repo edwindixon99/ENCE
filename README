@@ -23,7 +23,7 @@ Edwin Dixon (ejd83 76241975) & Jianqiao Guo jgu56
 
 6. To change selection use the navswitch. up (North) is paper, down (South) is rock and right (West) is scissors.
 
-7. To select which one of the three yu want to play against your opponent use left (East) on the navswitch which will send your selection to your opponent's board.
+7. To select which one of the three you want to play against your opponent use left (East) on the navswitch which will send your selection to your opponent's board.
 
 8. After a countdown followed by your selection a result will be shown on the board with either "WIN", "DRAW", "LOSE" or "ERROR". If "ERROR" is shown it is likely caused by interference in the IR transmission   
 
