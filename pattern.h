@@ -16,4 +16,7 @@ void Paper(void);
 
 //initialise the scissor pattern
 void Scissor(void);
+
+void display_pattern (char character);
+
 #endif
